@@ -1,0 +1,89 @@
+
+#include<stdio.h>
+#include<string.h>
+
+struct sv {
+    char tsv[10];
+    int msv;
+    int kh;
+    int nh;
+};
+void namhoc (int nh2 ,int i ,struct sv svien[i]);
+void masinhvien (int msv2 ,int i ,struct sv svien[i]);
+int main()
+{
+    struct sv hs[10];
+    int i;
+    int x;
+    int nh2 ,msv2;
+    for(i=0 ;i<10; i++)
+    {
+        printf("nhap ten sv %d : " ,i+1);
+        scanf("%s" ,hs[i].tsv);
+        printf("nhap msv %d : " ,i+1);
+        scanf("%d" ,&hs[i].msv);
+        printf("nhap khoa hoc sv %d : " ,i+1);
+        scanf("%d" ,&hs[i].kh);
+        printf("nhap nam hoc sv %d : " ,i+1);
+        scanf("%d" ,&hs[i].nh);
+        printf("\n");
+    }
+    printf("\n");
+    printf("\n");
+    printf("\t\t\t DANH SACH HOC SINH\n");
+    printf("stt    ten hoc sinh        ma sinh vien      khoa hoc      nam hoc\n");
+    for(i=0 ;i<10; i++)
+        printf("%-5d \t%-20s \t%-10d \t%-10d \t%-10d \n", i+1 , hs[i].tsv ,hs[i].msv, hs[i].kh ,hs[i].nh);
+    char a1 ='a';
+    while(a1 =='a')
+    {
+    printf("\t  MENU\n");
+    printf("\n");
+    printf("1. Tim hoc sinh theo nam hoc.\n");
+    printf("2. Tim hoc sinh theo ma sinh vien.\n");
+    printf("nhap (1-2): ");
+    scanf("%d", &x);
+    char a2 = 't';
+       while(x == 1 && a2 =='t')
+       {
+           printf("nhap nam hoc : ");
+           scanf("%d" ,&nh2);
+           printf("\n");
+           for(i= 0 ;i<10 ;i++)
+           {
+              namhoc(nh2 , i, hs);                     
+           }
+               printf("quay lai(t)\tthoat(f): ");
+               scanf("\n%c" ,&a2);
+       }
+       while(x == 2 && a2 == 't')
+       {
+           printf("nhap ma sinh vien : ");
+           scanf("%d" ,&msv2);
+           printf("\n");
+           for(i= 0 ;i<10 ;i++)
+           {
+           masinhvien(msv2 ,i ,hs);             
+           }
+               printf("quay lai(t)\tthoat(f): ");                        
+               scanf("\n%c" ,&a2);
+       }
+    }
+ return 0;
+}
+
+void namhoc(int nh2 ,int i,struct sv svien[i])
+{
+        if(nh2 == svien[i].nh)
+        {
+            printf("%-20s \t%-10d \t%-10d \t%-10d \n", svien[i].tsv ,svien[i].msv, svien[i].kh ,svien[i].nh);
+        }
+}
+
+void masinhvien(int msv2 ,int i ,struct sv svien[i])
+{
+    if(msv2 == svien[i].msv)
+    {
+        printf("%-20s \t%-10d \t%-10d \t%-10d \n" , svien[i].tsv ,svien[i].msv, svien[i].kh ,svien[i].nh);
+    }
+}

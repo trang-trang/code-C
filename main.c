@@ -1,9 +1,18 @@
 #include<stdio.h>
 int main()
 {
-    int basic = 12000,Hra = 150, Ta = 120, Other = 450;
-    float Da=12*basic/100, Pf=14*basic/100, It=15*basic/100, Net_salary;
-    Net_salary = basic + Da + Hra + Ta + Other -(Pf + It);
-    printf("\n Net_salary =%f",Net_salary);
+    int score ;
+    printf("\n nhap vao diem:");
+    scanf(" %d",  &score);
+    if(score >= 75)
+        printf("\n The Grade is : A\n");
+    else if(score >= 60)
+        printf("\n The Grade is : B\n");
+    else if(score >= 45)
+        printf("\n The Grade is : C\n");
+    else if(score >= 35)
+        printf("\n The Grade is : D\n");
+    else
+        printf("\n The Grade is : E\n");
     return 0;
 }
